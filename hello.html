@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello HTML Testing</title>
+</head>
+<body>
+
+<h1>Hello HTML</h1>
+
+<input type="number" id="num1" placeholder="Enter first number">
+<input type="number" id="num2" placeholder="Enter second number">
+
+<button onclick="calculate()">Calculate Sum</button>
+
+<p id="result">Result will appear here</p>
+
+<script>
+function calculate() {
+    let a = document.getElementById("num1").value;
+    let b = document.getElementById("num2").value;
+
+    // Logical mistakes below
+    if (a = "" || b = "") {   // ❌ assignment instead of comparison
+        document.getElementById("result").innerText = "Enter values!";
+    }
+
+    let sum = a + b;  // ❌ string concatenation instead of number addition
+
+    if (sum > 100) {
+        document.getElementById("result").innerText = "Small number"; // ❌ wrong message
+    } else {
+        document.getElementById("result").innerText = "Sum is: " + sum;
+    }
+
+    if (sum < 0) {
+        document.getElementById("result").innerText = "Positive number"; // ❌ wrong logic
+    }
+}
+</script>
+
+</body>
+</html>
