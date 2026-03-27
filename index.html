@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Testing Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Software Testing Page</h1>
+
+    <form id="testForm">
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+</div>
+
+<script>
+    document.getElementById("testForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let message = document.getElementById("message");
+
+        // Validation logic for testing
+        if (name === "" || email === "" || password === "") {
+            message.textContent = "All fields are required!";
+            message.className = "error";
+        } else if (password.length < 6) {
+            message.textContent = "Password must be at least 6 characters!";
+            message.className = "error";
+        } else {
+            message.textContent = "Form submitted successfully!";
+            message.className = "success";
+        }
+    });
+</script>
+
+</body>
+</html>
